@@ -1,4 +1,3 @@
-import javafx.application.Platform
 import javafx.concurrent.Task
 
 class Animation(private val planet: Planet) : Task<Void>() {
@@ -9,10 +8,7 @@ class Animation(private val planet: Planet) : Task<Void>() {
             // Update the angle based on the planet's speed
             angle += planet.speed
 
-            Platform.runLater {
-                planet.updatePosition(angle)
-                planet.updateCircle()
-            }
+            planet.updatePosition(angle)
 
             // Sleep for a short duration before updating again
             Thread.sleep(100)
